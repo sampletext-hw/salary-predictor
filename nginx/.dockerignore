@@ -1,0 +1,4 @@
+# Ignore development and cache folders
+.git
+.env
+.idea/

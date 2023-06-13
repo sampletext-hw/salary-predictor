@@ -1,0 +1,17 @@
+<div class="container">
+  <header>
+    <a [routerLink]="['/']" class="logo">
+      <h1>Salary Predictor</h1>
+    </a>
+    <div class="navigator">
+      <a mat-flat-button color="primary" [routerLink]="['../', 'auth', 'login']">Войти</a>
+      <a mat-flat-button color="primary" [routerLink]="['../', 'auth', 'register']">Регистрация</a>
+    </div>
+  </header>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <p>&copy; 2023 Salary Predictor. All rights reserved.</p>
+  </footer>
+</div>

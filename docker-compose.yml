@@ -1,0 +1,39 @@
+﻿version: "3"
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  predictor:
+    build:
+      context: ./predictor/
+      dockerfile: ./.Dockerfile
+    environment:
+      port: 5000
+    networks:
+      - default
+
+  frontend:
+    build:
+      context: ./salary-predict-front/
+      dockerfile: ./.Dockerfile
+    networks:
+      - default
+
+  outer-nginx:
+    container_name: outer-nginx
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Moscow"
+    build:
+      context: ./nginx/
+      dockerfile: ./nginx.Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - predictor
+      - frontend
+    networks:
+      - default

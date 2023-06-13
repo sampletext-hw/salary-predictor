@@ -1,0 +1,52 @@
+<main>
+  <mat-card [formGroup]="formGroup">
+    <mat-card-header>
+      <h2 mat-line>Укажите данные о вашем положении</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Возраст</mat-label>
+        <input matInput formControlName="age" type="number" min="1" max="99" placeholder="69">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Пол</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option *ngFor="let gender of genderSelect" [value]="gender.numericValue">
+            {{gender.stringValue}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Укажите пол, или выберите Other</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Уровень образования</mat-label>
+        <mat-select formControlName="edu_level">
+          <mat-option *ngFor="let eduLevel of eduLevelSelect" [value]="eduLevel.numericValue">
+            {{eduLevel.stringValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Кол-во лет опыта</mat-label>
+        <input matInput formControlName="years_exp" type="number" min="0" max="99" placeholder="13">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Ваша должность</mat-label>
+        <mat-select formControlName="job_title">
+          <mat-option *ngFor="let jobTitle of jobTitleSelect" [value]="jobTitle.numericValue">
+            {{jobTitle.stringValue}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Первая буква вашей должность, например S для Senior Analyst</mat-hint>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-stroked-button color="primary" (click)="submit()" [disabled]="isFormSent">
+        <span *ngIf="!isFormSent">Предсказать</span>
+        <mat-progress-spinner diameter="15" mode="indeterminate" strokeWidth="11%" *ngIf="isFormSent"
+                              class="spinner">
+        </mat-progress-spinner>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</main>

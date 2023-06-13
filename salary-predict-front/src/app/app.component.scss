@@ -1,0 +1,34 @@
+.container {
+  background-image: url('~src/assets/bg.jpg');
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+}
+
+header {
+  display: flex;
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.navigator {
+  display: flex;
+  gap: 0.5em;
+}
+
+footer {
+  color: white;
+  display: flex;
+  justify-content: center;
+}

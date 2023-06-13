@@ -1,0 +1,27 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mat-card {
+    max-width: 600px;
+    max-height: 600px;
+
+    mat-card-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0 1em;
+    }
+
+    mat-card-actions {
+      display: flex;
+      justify-content: end;
+
+      .spinner {
+        margin: 10px;
+      }
+    }
+  }
+
+}

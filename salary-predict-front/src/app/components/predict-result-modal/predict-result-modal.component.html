@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>
+  Результат предсказания
+</h1>
+<div mat-dialog-content>
+  <mat-card mat-dialog-content>
+    <h2 mat-line>Ваша предполагаемая зарплата</h2>
+    <h3 mat-line>{{data.predictions[0] | number:'1.2-2'}} $</h3>
+    <h2 mat-line>Точность предположения</h2>
+    <h3 mat-line>{{data.accuracy | number:'1.2-2'}}</h3>
+  </mat-card>
+</div>
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="onClose()">Закрыть</button>
+</div>
